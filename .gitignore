@@ -10,3 +10,5 @@ pom.xml
 .lein-plugins
 .lein-env
 .nrepl-port
+.lein-repl-history
+db.sq3
