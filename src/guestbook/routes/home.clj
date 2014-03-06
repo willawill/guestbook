@@ -4,6 +4,10 @@
             [guestbook.models.db :as db]
             [hiccup.form :refer :all]))
 
+(defn format-time [timestamp]
+  (-> "dd/MM/yyyy"
+      (java.text.SimpleDateFormat.)
+      (.format timestamp)))
 
 (defn show-guests []
   [:ul.guests
@@ -41,10 +45,7 @@
      (db/save-message name message)
      (home))))
 
-(defn format-time [timestamp]
-  (-> "dd/MM/yyyy"
-      (java.text.SimpleDateFormat.)
-      (.format timestamp)))
+
 
 (defroutes home-routes
   (GET "/" [] (home))
